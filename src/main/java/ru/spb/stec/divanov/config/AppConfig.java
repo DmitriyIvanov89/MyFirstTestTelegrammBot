@@ -1,14 +1,10 @@
 package ru.spb.stec.divanov.config;
 
-import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import ru.spb.stec.divanov.components.Bot;
 
 @Configuration
+@ComponentScan(value = "ru.spb.stec.divanov")
 public class AppConfig {
 
-    @Bean
-    public Bot bot() {
-        return new Bot();
-    }
 }
