@@ -11,19 +11,14 @@ import ru.spb.stec.divanov.config.AppConfig;
 public class MyFirstTestTelegramBotApp {
     public static void main(String[] args) {
 
-        ApplicationContext context =
-                new AnnotationConfigApplicationContext(AppConfig.class);
+        try {
+            ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+            TelegramBotsApi telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class);
+            telegramBotsApi.registerBot(context.getBean(Bot.class));
 
-        Bot bot = context.getBean("bot", Bot.class);
-
-//        try {
-//            AnnotationConfigApplicationContext context =
-//                    new AnnotationConfigApplicationContext(AppConfig.class);
-//            TelegramBotsApi telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class);
-//            telegramBotsApi.registerBot(context.getBean("bot", Bot.class));
-//        } catch (TelegramApiException e) {
-//            e.printStackTrace();
-//        }
+        } catch (TelegramApiException e) {
+            e.printStackTrace();
+        }
 
     }
 }
