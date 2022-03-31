@@ -9,7 +9,14 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 @Component
 public class Bot extends TelegramLongPollingBot {
-
+    /**
+     * @Value("${bot.name}")
+     * private String botUserName;
+     *
+     * @Value("{bot.token}")
+     * private String botToken
+     *
+     * */
     private final static String BOT_TOKEN = "5215836988:AAHlnTVEQVYsJtLBsDINg2crQgt1ttdnrV0";
     private final static String BOT_NAME = "JimboJack88Bot";
 
