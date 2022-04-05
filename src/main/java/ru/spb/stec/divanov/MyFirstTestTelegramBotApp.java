@@ -35,7 +35,7 @@ public class MyFirstTestTelegramBotApp {
 
     public static String myTestRequest() {
         try {
-            URL url = new URL("https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD,EUR,RUB");
+            URL url = new URL("https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH&tsyms=USD,EUR,RUB");
             HttpURLConnection http = (HttpURLConnection) url.openConnection();
             http.setRequestMethod("GET");
             http.setRequestProperty("Content-type", "application/json");
