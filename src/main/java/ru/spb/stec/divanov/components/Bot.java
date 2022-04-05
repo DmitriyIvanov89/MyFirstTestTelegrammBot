@@ -15,7 +15,6 @@ public class Bot extends TelegramLongPollingBot {
      *
      * @Value("{bot.token}")
      * private String botToken
-     *
      * */
     private final static String BOT_TOKEN = "5215836988:AAHlnTVEQVYsJtLBsDINg2crQgt1ttdnrV0";
     private final static String BOT_NAME = "JimboJack88Bot";
