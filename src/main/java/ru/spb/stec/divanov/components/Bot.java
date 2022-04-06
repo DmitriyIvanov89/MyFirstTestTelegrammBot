@@ -1,5 +1,6 @@
 package ru.spb.stec.divanov.components;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
@@ -10,14 +11,17 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 @Component
 public class Bot extends TelegramLongPollingBot {
     /**
-     * @Value("${bot.name}")
-     * private String botUserName;
-     *
-     * @Value("{bot.token}")
-     * private String botToken
-     * */
+     * @Value("${bot.name}") private String botUserName;
+     * @Value("{bot.token}") private String botToken
+     */
     private final static String BOT_TOKEN = "5215836988:AAHlnTVEQVYsJtLBsDINg2crQgt1ttdnrV0";
     private final static String BOT_NAME = "JimboJack88Bot";
+    private CryptoService cryptoService;
+
+    @Autowired
+    public void setCryptoService(CryptoService cryptoService) {
+        this.cryptoService = cryptoService;
+    }
 
     @Override
     public String getBotUsername() {
@@ -52,9 +56,9 @@ public class Bot extends TelegramLongPollingBot {
         String response;
 
         if (textMessage.equals("/start")) {
-            response = "Hi bro! Press F to pay respect!";
+            response = "Hi bro!\nThis is the test bot.\nPlease input /get command.";
         } else if (textMessage.equals("/get")) {
-            response = "this is get command!";
+            response = cryptoService.requestCryptoCourses();
         } else {
             response = "no valid command";
         }
