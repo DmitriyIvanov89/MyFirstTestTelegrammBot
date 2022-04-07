@@ -1,4 +1,4 @@
-package ru.spb.stec.divanov.components;
+package ru.spb.stec.divanov.components.service;
 
 import org.springframework.stereotype.Component;
 
@@ -8,12 +8,15 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 @Component
-public class CryptoService implements BaseCryptoService {
+public class BotCommandWithCryptoCurrency implements CryptoService {
 
     private static final String HOST = "https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH&tsyms=USD,EUR,RUB";
 
     @Override
-    public String requestCryptoCourses() {
+    public String getCryptoCurrencyRate() {
+        /*
+        * Отдельный класс для установки соединения
+        * */
         try {
             URL url = new URL(HOST);
             HttpURLConnection http = (HttpURLConnection) url.openConnection();

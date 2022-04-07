@@ -19,7 +19,6 @@ public class MyFirstTestTelegramBotApp {
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }
-
     }
 
 }

@@ -13,9 +13,9 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-context:5.3.17" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-aop:5.3.17" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-beans:5.3.17" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-expression:5.3.17" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-core:5.3.17" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-jcl:5.3.17" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-expression:5.3.17" level="project" />
     <orderEntry type="library" name="Maven: org.telegram:telegrambots:5.7.1" level="project" />
     <orderEntry type="library" name="Maven: org.telegram:telegrambots-meta:5.7.1" level="project" />
     <orderEntry type="library" name="Maven: com.google.guava:guava:30.0-jre" level="project" />

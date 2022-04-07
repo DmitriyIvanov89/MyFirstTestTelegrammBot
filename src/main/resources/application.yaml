@@ -1,4 +1,0 @@
-bot:
-  name: ${BOT_NAME}
-  token_telegramm: ${BOT_TOKEN}
-  token_chain : ${TOKEN_API}
