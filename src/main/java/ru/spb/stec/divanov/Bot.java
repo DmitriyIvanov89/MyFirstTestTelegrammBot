@@ -1,24 +1,20 @@
-package ru.spb.stec.divanov.components;
+package ru.spb.stec.divanov;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
-import ru.spb.stec.divanov.components.service.BotCommandWithCryptoCurrency;
 
-@Component
+
 public class Bot extends TelegramLongPollingBot {
 
     private final static String BOT_TOKEN = "5215836988:AAHlnTVEQVYsJtLBsDINg2crQgt1ttdnrV0";
     private final static String BOT_NAME = "JimboJack88Bot";
-    private BotCommandWithCryptoCurrency cryptoService;
+    private final BotCommandWithCryptoCurrency cryptoService;
 
-    @Autowired
-    public void setCryptoService(BotCommandWithCryptoCurrency cryptoService) {
-        this.cryptoService = cryptoService;
+    public Bot() {
+        this.cryptoService = new BotCommandWithCryptoCurrency();
     }
 
     @Override
