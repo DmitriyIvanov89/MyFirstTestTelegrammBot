@@ -1,4 +1,4 @@
-package ru.spb.stec.divanov;
+package ru.spb.stec.divanov.service;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
