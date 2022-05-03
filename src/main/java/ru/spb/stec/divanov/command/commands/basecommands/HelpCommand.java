@@ -8,9 +8,8 @@ import ru.spb.stec.divanov.service.SendBotMessageService;
 public class HelpCommand implements Command {
 
     private final SendBotMessageService sendBotMessageService;
-    private static final String HELP_MESSAGE = String.format("<b>Available commands</b>\n\n"
-
-                    + "<b>Start\\Stop work with bot</b>\n"
+    private static final String HELP_MESSAGE = String.format(
+            "<b>Available commands</b>\n\n"
                     + "%s - start work with bot\n"
                     + "%s - stop work with bot\n"
                     + "%s - get rates\n"

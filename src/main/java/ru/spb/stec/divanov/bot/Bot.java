@@ -3,6 +3,8 @@ package ru.spb.stec.divanov.bot;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
+import ru.spb.stec.divanov.command.Command;
+import ru.spb.stec.divanov.command.CommandName;
 import ru.spb.stec.divanov.command.commands.CommandsContainer;
 import ru.spb.stec.divanov.service.SendBotMessageImpl;
 
@@ -34,17 +36,12 @@ public class Bot extends TelegramLongPollingBot {
         if (update.hasMessage() && update.getMessage().hasText()) {
             Message message = update.getMessage();
             String chatId = message.getChatId().toString();
-            getCommandFromMessage(message.getText(), update);
-        }
-    }
-
-    private void getCommandFromMessage(String message, Update update) {
-
-        if (message.startsWith(COMMAND_PREFIX)) {
-            String commandIdentifier = message.split(" ")[0].toLowerCase();
-            commandsContainer.getCommandFromContainer(commandIdentifier).execute(update);
-        } else {
-            System.out.println("Unknown command"); // exception
+            if (message.getText().startsWith(COMMAND_PREFIX)) {
+                String commandIdentifier = message.getText().split(" ")[0].toLowerCase();
+                commandsContainer.getCommandFromContainer(commandIdentifier).execute(update);
+            } else {
+                commandsContainer.getCommandFromContainer(CommandName.UNKNOWN.getName()).execute(update);
+            }
         }
     }
 }
