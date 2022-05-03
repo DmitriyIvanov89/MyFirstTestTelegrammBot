@@ -12,11 +12,9 @@ public class Bot extends TelegramLongPollingBot {
     private static final String BOT_TOKEN = "5215836988:AAHlnTVEQVYsJtLBsDINg2crQgt1ttdnrV0";
     private static final String BOT_NAME = "JimboJack88Bot";
     private static final String COMMAND_PREFIX = "/";
-    private CommandsContainer commandsContainer;
-//    private final BotCommandWithCryptoCurrency cryptoService;
+    private final CommandsContainer commandsContainer;
 
     public Bot() {
-//        this.cryptoService = new BotCommandWithCryptoCurrency();
         this.commandsContainer = new CommandsContainer(new SendBotMessageImpl(this));
     }
 
@@ -45,6 +43,8 @@ public class Bot extends TelegramLongPollingBot {
         if (message.startsWith(COMMAND_PREFIX)) {
             String commandIdentifier = message.split(" ")[0].toLowerCase();
             commandsContainer.getCommandFromContainer(commandIdentifier).execute(update);
+        } else {
+            System.out.println("Unknown command"); // exception
         }
     }
 }

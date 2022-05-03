@@ -1,4 +1,4 @@
-package ru.spb.stec.divanov.command.commands;
+package ru.spb.stec.divanov.command.commands.basecommands;
 
 import org.telegram.telegrambots.meta.api.objects.Update;
 import ru.spb.stec.divanov.command.Command;
