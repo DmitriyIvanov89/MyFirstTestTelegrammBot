@@ -1,4 +1,4 @@
-package ru.spb.stec.divanov.service;
+package ru.spb.stec.divanov.service.botsendmessage;
 
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;

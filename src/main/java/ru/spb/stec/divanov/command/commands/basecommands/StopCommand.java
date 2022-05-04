@@ -2,11 +2,11 @@ package ru.spb.stec.divanov.command.commands.basecommands;
 
 import org.telegram.telegrambots.meta.api.objects.Update;
 import ru.spb.stec.divanov.command.Command;
-import ru.spb.stec.divanov.service.SendBotMessageService;
+import ru.spb.stec.divanov.service.botsendmessage.SendBotMessageService;
 
 public class StopCommand implements Command {
 
-    private SendBotMessageService sendBotMessageService;
+    private final SendBotMessageService sendBotMessageService;
     private static final String STOP_MESSAGE = "Bot completed";
 
     public StopCommand(SendBotMessageService sendBotMessageService) {

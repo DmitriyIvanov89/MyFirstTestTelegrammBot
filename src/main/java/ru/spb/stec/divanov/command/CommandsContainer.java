@@ -1,21 +1,18 @@
-package ru.spb.stec.divanov.command.commands;
+package ru.spb.stec.divanov.command;
 
-import ru.spb.stec.divanov.command.Command;
-import ru.spb.stec.divanov.command.CommandName;
 import ru.spb.stec.divanov.command.commands.basecommands.HelpCommand;
 import ru.spb.stec.divanov.command.commands.basecommands.StartCommand;
 import ru.spb.stec.divanov.command.commands.basecommands.StopCommand;
 import ru.spb.stec.divanov.command.commands.basecommands.UnknownCommand;
 import ru.spb.stec.divanov.command.commands.servicecommands.GetCommand;
-import ru.spb.stec.divanov.service.SendBotMessageService;
+import ru.spb.stec.divanov.service.botsendmessage.SendBotMessageService;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class CommandsContainer {
 
-    private Map<String, Command> commands;
-    private Command unknownCommand;
+    private final Map<String, Command> commands;
 
     public CommandsContainer(SendBotMessageService sendBotMessageService) {
         commands = new HashMap<>();

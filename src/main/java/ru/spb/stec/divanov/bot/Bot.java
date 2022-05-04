@@ -3,10 +3,9 @@ package ru.spb.stec.divanov.bot;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
-import ru.spb.stec.divanov.command.Command;
 import ru.spb.stec.divanov.command.CommandName;
-import ru.spb.stec.divanov.command.commands.CommandsContainer;
-import ru.spb.stec.divanov.service.SendBotMessageImpl;
+import ru.spb.stec.divanov.command.CommandsContainer;
+import ru.spb.stec.divanov.service.botsendmessage.SendBotMessageImpl;
 
 
 public class Bot extends TelegramLongPollingBot {
@@ -35,7 +34,6 @@ public class Bot extends TelegramLongPollingBot {
 
         if (update.hasMessage() && update.getMessage().hasText()) {
             Message message = update.getMessage();
-            String chatId = message.getChatId().toString();
             if (message.getText().startsWith(COMMAND_PREFIX)) {
                 String commandIdentifier = message.getText().split(" ")[0].toLowerCase();
                 commandsContainer.getCommandFromContainer(commandIdentifier).execute(update);

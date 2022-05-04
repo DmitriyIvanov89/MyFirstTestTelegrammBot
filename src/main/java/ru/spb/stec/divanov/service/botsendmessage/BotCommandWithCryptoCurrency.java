@@ -1,4 +1,4 @@
-package ru.spb.stec.divanov.service;
+package ru.spb.stec.divanov.service.botsendmessage;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
