@@ -28,6 +28,11 @@ public class BaseRate {
         this.rates = rates;
     }
 
+    @Override
+    public String toString() {
+        return "Test rate string";
+    }
+
     public class Rate {
 
         private Currency currency;

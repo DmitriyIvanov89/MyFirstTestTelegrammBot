@@ -21,6 +21,7 @@ public class RateReader {
 
     public BaseRate getRatesFromResponse() throws IOException {
         try (BufferedReader reader = new BufferedReader(new FileReader(response))) {
+            System.out.println("reader ok");
             return new Gson().fromJson(reader, BaseRate.class);
         }
     }

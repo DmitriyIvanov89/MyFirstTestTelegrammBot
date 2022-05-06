@@ -1,29 +1,15 @@
-package ru.spb.stec.divanov.command.commands.servicecommands;
-
-import org.telegram.telegrambots.meta.api.objects.Update;
-import ru.spb.stec.divanov.command.Command;
-import ru.spb.stec.divanov.service.botsendmessage.SendBotMessageService;
+package ru.spb.stec.divanov.service.httpconnection;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class GetCommand implements Command {
+public class GetRatesConnection {
 
     private static final String HOST = "https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH&tsyms=USD,EUR,RUB";
-    private final SendBotMessageService sendBotMessageService;
 
-    public GetCommand(SendBotMessageService sendBotMessageService) {
-        this.sendBotMessageService = sendBotMessageService;
-    }
-
-    @Override
-    public void execute(Update update) {
-        sendBotMessageService.sendMessage(update.getMessage().getChatId().toString(), getRates());
-    }
-
-    private String getRates() {
+    public String getRates() {
         try {
             URL url = new URL(HOST);
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
@@ -43,6 +29,6 @@ public class GetCommand implements Command {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "ERROR";
+        return "Error request. Please try again later.";
     }
 }
