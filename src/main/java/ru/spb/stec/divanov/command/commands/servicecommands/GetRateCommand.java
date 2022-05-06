@@ -7,8 +7,6 @@ import ru.spb.stec.divanov.service.httpconnection.GetRatesConnection;
 import ru.spb.stec.divanov.service.mapper.Mapper;
 import ru.spb.stec.divanov.service.messagereader.RateReader;
 
-import java.io.IOException;
-
 public class GetRateCommand implements Command {
 
     private final SendBotMessageService sendBotMessageService;
@@ -17,19 +15,9 @@ public class GetRateCommand implements Command {
         this.sendBotMessageService = sendBotMessageService;
     }
 
-//    @Override
-//    public void execute(Update update) {
-//        sendBotMessageService.sendMessage(update.getMessage().getChatId().toString(), new GetRatesConnection().getRates());
-//    }
-
-
     @Override
     public void execute(Update update) {
-        try {
-            sendBotMessageService.sendMessage(update.getMessage().getChatId().toString(),
-                    new Mapper().mapping(new RateReader(new GetRatesConnection().getRates()).getRatesFromResponse()));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        sendBotMessageService.sendMessage(update.getMessage().getChatId().toString(),
+                new Mapper().mapping(new RateReader(new GetRatesConnection().getRates()).getRatesFromResponse()));
     }
 }
