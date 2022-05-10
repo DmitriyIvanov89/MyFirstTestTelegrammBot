@@ -1,9 +1,6 @@
 package ru.spb.stec.divanov.command;
 
-import ru.spb.stec.divanov.command.commands.basecommands.HelpCommand;
-import ru.spb.stec.divanov.command.commands.basecommands.StartCommand;
-import ru.spb.stec.divanov.command.commands.basecommands.StopCommand;
-import ru.spb.stec.divanov.command.commands.basecommands.UnknownCommand;
+import ru.spb.stec.divanov.command.commands.basecommands.*;
 import ru.spb.stec.divanov.command.commands.servicecommands.GetRateCommand;
 import ru.spb.stec.divanov.service.botsendmessage.SendBotMessageService;
 
@@ -13,6 +10,7 @@ import java.util.Map;
 public class CommandsContainer {
 
     private final Map<String, Command> commands;
+    private final Command unknownCommand;
 
     public CommandsContainer(SendBotMessageService sendBotMessageService) {
         commands = new HashMap<>();
@@ -20,10 +18,11 @@ public class CommandsContainer {
         commands.put(CommandName.STOP.getName(), new StopCommand(sendBotMessageService));
         commands.put(CommandName.HELP.getName(), new HelpCommand(sendBotMessageService));
         commands.put(CommandName.GET.getName(), new GetRateCommand(sendBotMessageService));
-        commands.put(CommandName.UNKNOWN.getName(), new UnknownCommand(sendBotMessageService));
+        commands.put(CommandName.NO.getName(), new NoCommand(sendBotMessageService));
+        unknownCommand = new UnknownCommand(sendBotMessageService);
     }
 
     public Command getCommandFromContainer(String commandIdentifier) {
-        return commands.get(commandIdentifier);
+        return commands.getOrDefault(commandIdentifier, unknownCommand);
     }
 }

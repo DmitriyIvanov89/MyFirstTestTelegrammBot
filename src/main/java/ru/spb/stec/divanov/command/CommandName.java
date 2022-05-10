@@ -6,7 +6,7 @@ public enum CommandName {
     GET("/get"),
     HELP("/help"),
     STOP("/stop"),
-    UNKNOWN("unknown");
+    NO("nocommand");
 
     private final String name;
 
