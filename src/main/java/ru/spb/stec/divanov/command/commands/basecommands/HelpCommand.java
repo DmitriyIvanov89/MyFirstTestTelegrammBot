@@ -9,15 +9,16 @@ public class HelpCommand implements Command {
 
     private final SendBotMessageService sendBotMessageService;
     private static final String HELP_MESSAGE = String.format(
-            "<b>Available commands</b>\n\n"
-                    + "%s - start work with bot\n"
-                    + "%s - stop work with bot\n"
-                    + "%s - get rates\n"
-                    + "%s - get help\n",
-            CommandName.START.getName(),
-            CommandName.STOP.getName(),
+            "<b>Available commands</b>:\n\n"
+                    + "%s - get a actual rate of top 3 coins;\n"
+                    + "%s - get a number of top 10 coins by their total volume;\n"
+                    + "%s - get a number of top 10 coins by their market cap;\n"
+                    + "%s - stop work with bot;\n",
             CommandName.GET.getName(),
-            CommandName.HELP.getName());
+            CommandName.GET.getName(),
+            CommandName.GET.getName(),
+            CommandName.STOP.getName()
+    );
 
     public HelpCommand(SendBotMessageService sendBotMessageService) {
         this.sendBotMessageService = sendBotMessageService;
