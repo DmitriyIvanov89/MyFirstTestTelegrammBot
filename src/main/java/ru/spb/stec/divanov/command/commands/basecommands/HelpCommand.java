@@ -8,6 +8,7 @@ import ru.spb.stec.divanov.service.botsendmessage.SendBotMessageService;
 public class HelpCommand implements Command {
 
     private final SendBotMessageService sendBotMessageService;
+    // insert commands after create
     private static final String HELP_MESSAGE = String.format(
             "<b>Available commands</b>:\n\n"
                     + "%s - get a actual rate of top 3 coins;\n"

@@ -7,11 +7,11 @@ import ru.spb.stec.divanov.service.httpconnection.GetRatesConnection;
 import ru.spb.stec.divanov.service.mapper.Mapper;
 import ru.spb.stec.divanov.service.messagereader.RateReader;
 
-public class GetRateCommand implements Command {
+public class GetTopCoinsRate implements Command {
 
     private final SendBotMessageService sendBotMessageService;
 
-    public GetRateCommand(SendBotMessageService sendBotMessageService) {
+    public GetTopCoinsRate(SendBotMessageService sendBotMessageService) {
         this.sendBotMessageService = sendBotMessageService;
     }
 

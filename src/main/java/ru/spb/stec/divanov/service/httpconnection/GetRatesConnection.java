@@ -7,7 +7,8 @@ import java.net.URL;
 
 public class GetRatesConnection {
 
-    private static final String HOST = "https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH&tsyms=USD,EUR,RUB";
+    //private static final String HOST = "https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH&tsyms=USD,EUR,RUB";
+    private static final String HOST = "";
 
     public String getRates() {
         StringBuilder response = new StringBuilder();
