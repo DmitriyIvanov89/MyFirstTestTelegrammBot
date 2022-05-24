@@ -35,20 +35,20 @@ public class BaseRate {
 
     public class Rate {
 
-        private Currency currency;
+        private Currency Currency;
         private double amount;
 
-        public Rate(Currency currency, double amount) {
-            this.currency = currency;
+        public Rate(Currency Currency, double amount) {
+            this.Currency = Currency;
             this.amount = amount;
         }
 
         public Currency getCurrency() {
-            return currency;
+            return Currency;
         }
 
-        public void setCurrency(Currency currency) {
-            this.currency = currency;
+        public void setCurrency(Currency Currency) {
+            this.Currency = Currency;
         }
 
         public double getAmount() {

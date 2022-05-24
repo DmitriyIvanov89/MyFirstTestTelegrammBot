@@ -2,6 +2,9 @@ package ru.spb.stec.divanov.service.messagereader;
 
 import com.google.gson.Gson;
 import ru.spb.stec.divanov.model.BaseRate;
+import ru.spb.stec.divanov.model.CoinInfo;
+
+import java.lang.reflect.Type;
 
 public class RateReader {
 
@@ -16,6 +19,6 @@ public class RateReader {
     }
 
     public BaseRate getRatesFromResponse() {
-        return new Gson().fromJson(response,BaseRate.class);
+        return new Gson().fromJson(response, BaseRate.class);
     }
 }
