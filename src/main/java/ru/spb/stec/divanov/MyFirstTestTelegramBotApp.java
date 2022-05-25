@@ -16,11 +16,8 @@ public class MyFirstTestTelegramBotApp {
 //        }
 
         String response = new GetRatesConnection().getRates();
-//        Gson gson = new GsonBuilder().setPrettyPrinting().create();
         JsonElement jsonElement = new Gson().fromJson(response, JsonElement.class);
-//        System.out.println(jsonElement);
-        jsonElement.getAsJsonObject();
-        System.out.println(jsonElement.getAsJsonObject().get("Data"));
+        System.out.println(jsonElement.getAsJsonObject().getAsJsonArray("Data").get(0).getAsJsonObject().get("CoinInfo").getAsJsonObject().get("Name"));
 
     }
 }
