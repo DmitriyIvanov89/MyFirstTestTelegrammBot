@@ -16,7 +16,7 @@ public class StartCommand implements Command {
                     + "%s - get a number of top 3 coins by their total volume;\n"
                     + "%s - get a number of top 3 coins by their market cap;\n"
                     + "%s - help;\n"
-                    + "All data is taken from CryptoCompare (www.cryptocompare.com).",
+                    + "All data is from CryptoCompare (www.cryptocompare.com).",
             CommandName.GET.getName(),
             CommandName.GET.getName(),
             CommandName.GET.getName(),

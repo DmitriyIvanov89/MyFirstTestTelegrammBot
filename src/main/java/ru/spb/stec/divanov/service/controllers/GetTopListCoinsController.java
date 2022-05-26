@@ -12,25 +12,27 @@ public class GetTopListCoinsController {
     private static final String topListCoins = "https://min-api.cryptocompare.com/data/top/totalvolfull?limit=10&tsym=USD";
     private static final String HEADER_MESSAGE = "Top 10 Coins by their total volume:\n";
 
-    public String getTopListCoins() {
+    public List<JsonElement> getTopListCoins() {
         ConnectionToCryptoAPI connectionToCryptoAPI = new ConnectionToCryptoAPI();
         List<JsonElement> coins = new ArrayList<>();
-        String response = connectionToCryptoAPI.testConnection(topListCoins);
+        String response = connectionToCryptoAPI.getTopListCoins(topListCoins);
         JsonElement element = new Gson().fromJson(response, JsonElement.class);
         JsonArray jsonArray = element.getAsJsonObject().getAsJsonArray("Data");
 
         for (JsonElement e : jsonArray) {
-            coins.add(e.getAsJsonObject().get("CoinInfo").getAsJsonObject().get("FullName"));
+            coins.add(e.getAsJsonObject().get("CoinInfo").getAsJsonObject().get("Name"));
         }
 
-        StringBuilder sb = new StringBuilder();
-        sb.append(HEADER_MESSAGE);
+//        StringBuilder sb = new StringBuilder();
+//        sb.append(HEADER_MESSAGE);
+//
+//        for (int i = 1; i < coins.size(); i++) {
+//            sb.append(String.format("- %s\n", coins.get(i)));
+//        }
+//
+//        return sb.toString();
 
-        for (int i = 1; i < coins.size(); i++) {
-            sb.append(String.format("- %s\n", coins.get(i)));
-        }
-
-        return sb.toString();
+        return coins;
     }
 
 

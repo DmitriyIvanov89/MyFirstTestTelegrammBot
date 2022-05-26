@@ -1,24 +1,32 @@
-package ru.spb.stec.divanov.service.httpconnection;
+package ru.spb.stec.divanov.service.controllers;
 
-import java.io.BufferedReader;;
+import com.google.gson.JsonElement;
+
+import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.List;
 
-public class ConnectionToCryptoAPI {
-
+public class GetRatesTopCoins {
+    private static final String address = "https://min-api.cryptocompare.com/data/pricemulti";
     private static final String API_KEY = "***";
+    private GetTopListCoinsController getTopListCoinsController;
 
-    public String getTopListCoins(String host) {
+    public String getTopCoinsRates() {
+        getTopListCoinsController = new GetTopListCoinsController();
+        List<JsonElement> topListCoins = getTopListCoinsController.getTopListCoins();
+
         StringBuilder response = new StringBuilder();
 
         try {
-            URL url = new URL(host);
+            URL url = new URL(address);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
             connection.setRequestProperty("X-CMC_PRO_API_KEY", API_KEY);
             connection.setRequestProperty("Content-Type", "application/json; utf-8");
             connection.setRequestProperty("Accept", "application/json");
+            
             int responseCode = connection.getResponseCode();
 
             if (responseCode != HttpURLConnection.HTTP_OK) {
@@ -38,5 +46,8 @@ public class ConnectionToCryptoAPI {
         }
 
         return response.toString();
+
     }
+
+
 }
