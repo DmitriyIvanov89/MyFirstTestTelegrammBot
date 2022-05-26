@@ -29,7 +29,10 @@ public class MyFirstTestTelegramBotApp {
             coinsNames.add(element.getAsJsonObject().get("CoinInfo").getAsJsonObject().get("Name"));
         }
 
-        System.out.println("hjdgfkjdh");
+        for (JsonElement element : array) {
+            System.out.println(element.getAsString());
+        }
+
 
     }
 }
