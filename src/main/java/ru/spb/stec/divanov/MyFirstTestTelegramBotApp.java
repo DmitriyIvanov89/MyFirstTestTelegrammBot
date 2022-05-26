@@ -1,7 +1,7 @@
 package ru.spb.stec.divanov;
 
 import com.google.gson.*;
-import ru.spb.stec.divanov.service.httpconnection.GetRatesConnection;
+import ru.spb.stec.divanov.service.httpconnection.ConnectionToCryptoAPI;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,10 +18,8 @@ public class MyFirstTestTelegramBotApp {
 //            ex.printStackTrace();
 //        }
 
-        String response = new GetRatesConnection().getRates();
+        String response = new ConnectionToCryptoAPI().getTopListCoins();
         JsonElement jsonElement = new Gson().fromJson(response, JsonElement.class);
-//        System.out.println(jsonElement.getAsJsonObject().getAsJsonArray("Data").get(0).getAsJsonObject().get("CoinInfo").getAsJsonObject().get("Name"));
-
         JsonArray array = jsonElement.getAsJsonObject().getAsJsonArray("Data");
         List<JsonElement> coinsNames = new ArrayList<>();
 
@@ -29,7 +27,11 @@ public class MyFirstTestTelegramBotApp {
             coinsNames.add(element.getAsJsonObject().get("CoinInfo").getAsJsonObject().get("Name"));
         }
 
-        System.out.println("hjdgfkjdh");
+        for (JsonElement element : coinsNames) {
+            System.out.println(element.getAsString());
+        }
+
+        
 
     }
 }
