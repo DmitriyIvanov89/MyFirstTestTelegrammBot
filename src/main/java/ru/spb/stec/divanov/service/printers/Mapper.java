@@ -1,4 +1,4 @@
-package ru.spb.stec.divanov.service.mapper;
+package ru.spb.stec.divanov.service.printers;
 
 import ru.spb.stec.divanov.model.BaseRate;
 

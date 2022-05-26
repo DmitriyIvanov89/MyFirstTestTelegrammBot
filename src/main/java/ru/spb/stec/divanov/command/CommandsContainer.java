@@ -1,7 +1,7 @@
 package ru.spb.stec.divanov.command;
 
 import ru.spb.stec.divanov.command.commands.basecommands.*;
-import ru.spb.stec.divanov.command.commands.servicecommands.GetTopCoinsRate;
+import ru.spb.stec.divanov.command.commands.servicecommands.TopListCommand;
 import ru.spb.stec.divanov.service.botsendmessage.SendBotMessageService;
 
 import java.util.HashMap;
@@ -19,8 +19,7 @@ public class CommandsContainer {
         commands.put(CommandName.HELP.getName(), new HelpCommand(sendBotMessageService));
         commands.put(CommandName.NO.getName(), new NoCommand(sendBotMessageService));
         unknownCommand = new UnknownCommand(sendBotMessageService);
-
-        commands.put(CommandName.GET.getName(), new GetTopCoinsRate(sendBotMessageService));
+        commands.put(CommandName.GET.getName(), new TopListCommand(sendBotMessageService));
     }
 
     public Command getCommandFromContainer(String commandIdentifier) {

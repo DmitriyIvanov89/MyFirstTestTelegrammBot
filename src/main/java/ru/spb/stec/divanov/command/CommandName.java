@@ -7,10 +7,7 @@ public enum CommandName {
     HELP("/help"),
     STOP("/stop"),
     NO("nocommand"),
-    GET_TOP_THREE_RATE("/getTop3Rate"),
-    GET_TOP_BY_VOLUME("/getTopVolume"),
-    GET_TOP_BY_MARKET_CUP("/getTopCup");
-
+    GET_TOP_THREE_RATE("/getTop3Rate");
 
     private final String name;
 

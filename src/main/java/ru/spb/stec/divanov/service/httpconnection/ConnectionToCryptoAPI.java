@@ -5,17 +5,15 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class GetRatesConnection {
+public class ConnectionToCryptoAPI {
 
-    private static final String HOST = "https://min-api.cryptocompare.com/data/top/totalvolfull?limit=3&tsym=USD";;
-//    private static final String HOST = "https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/listings/latest";
     private static final String API_KEY = "***";
 
-    public String getRates() {
+    public String testConnection(String host) {
         StringBuilder response = new StringBuilder();
 
         try {
-            URL url = new URL(HOST);
+            URL url = new URL(host);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
             connection.setRequestProperty("X-CMC_PRO_API_KEY", API_KEY);
