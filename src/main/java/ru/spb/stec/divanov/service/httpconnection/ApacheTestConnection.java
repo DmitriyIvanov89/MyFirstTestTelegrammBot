@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ApacheTestConnection {
-    private static final String API_KEY = "*****";
+    private static final String API_KEY = "***";
     private static final String URL = "https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/listings/latest";
 
     public void getTestConnection() {

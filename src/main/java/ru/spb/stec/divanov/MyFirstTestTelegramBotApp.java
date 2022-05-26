@@ -7,7 +7,7 @@ import ru.spb.stec.divanov.service.httpconnection.GetRatesConnection;
 import java.io.*;
 
 public class MyFirstTestTelegramBotApp {
-    private static final String HOST = "https://min-api.cryptocompare.com/data/top/totalvolfull?limit=3&tsym=USD";
+
 
     public static void main(String[] args) {
 
@@ -19,5 +19,6 @@ public class MyFirstTestTelegramBotApp {
 //        }
 
         System.out.println(new GetRatesConnection().getRates());
+
     }
 }
