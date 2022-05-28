@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class ResponsePrinter {
 
-    public String convertToView(String responseJson) {
+    public String convertResponseToString(String responseJson) {
         JsonObject responseInJson = new Gson().fromJson(responseJson, JsonObject.class);
         StringBuilder responseForUser = new StringBuilder();
 

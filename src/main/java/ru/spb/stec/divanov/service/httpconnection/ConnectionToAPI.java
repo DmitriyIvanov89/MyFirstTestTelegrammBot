@@ -5,15 +5,15 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class ConnectionToCryptoAPI {
+public class ConnectionToAPI {
 
     private static final String API_KEY = "***";
 
-    public String getTopListCoins(String host) {
+    public String getTopListCoins(String requestURL) {
         StringBuilder response = new StringBuilder();
 
         try {
-            URL url = new URL(host);
+            URL url = new URL(requestURL);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
             connection.setRequestProperty("X-CMC_PRO_API_KEY", API_KEY);
