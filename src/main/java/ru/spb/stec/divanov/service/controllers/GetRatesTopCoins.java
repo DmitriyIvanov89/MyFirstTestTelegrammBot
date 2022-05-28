@@ -11,7 +11,6 @@ import java.util.List;
 public class GetRatesTopCoins {
     private static final String address = "https://min-api.cryptocompare.com/data/pricemulti?fsyms=";
     private static final String CURRENCY_FOR_RATE_REQUEST_PARAM = "&tsyms=USD,EUR,RUB";
-    private static final String HEADER_MESSAGE = "Top 10 Coins by their total volume:\n";
     private static final String API_KEY = "***";
 
     public String getTopCoinsRates() {

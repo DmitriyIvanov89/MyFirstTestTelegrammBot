@@ -12,11 +12,7 @@ public class HelpCommand implements Command {
     private static final String HELP_MESSAGE = String.format(
             "<b>Available commands</b>:\n\n"
                     + "%s - get a actual rate of top 3 coins;\n"
-                    + "%s - get a number of top 3 coins by their total volume;\n"
-                    + "%s - get a number of top 3 coins by their market cap;\n"
                     + "%s - stop work with bot;\n",
-            CommandName.GET.getName(),
-            CommandName.GET.getName(),
             CommandName.GET.getName(),
             CommandName.STOP.getName()
     );

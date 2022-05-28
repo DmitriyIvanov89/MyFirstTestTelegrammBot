@@ -18,8 +18,8 @@ public class CommandsContainer {
         commands.put(CommandName.STOP.getName(), new StopCommand(sendBotMessageService));
         commands.put(CommandName.HELP.getName(), new HelpCommand(sendBotMessageService));
         commands.put(CommandName.NO.getName(), new NoCommand(sendBotMessageService));
-        unknownCommand = new UnknownCommand(sendBotMessageService);
         commands.put(CommandName.GET.getName(), new TopListCommand(sendBotMessageService));
+        unknownCommand = new UnknownCommand(sendBotMessageService);
     }
 
     public Command getCommandFromContainer(String commandIdentifier) {

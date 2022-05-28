@@ -3,11 +3,10 @@ package ru.spb.stec.divanov.command;
 public enum CommandName {
 
     START("/start"),
-    GET("/get"),
+    GET("/gettop10coinsrates"),
     HELP("/help"),
     STOP("/stop"),
-    NO("nocommand"),
-    GET_TOP_THREE_RATE("/getTop3Rate");
+    NO("nocommand");
 
     private final String name;
 

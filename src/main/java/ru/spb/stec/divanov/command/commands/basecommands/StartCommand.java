@@ -11,14 +11,10 @@ public class StartCommand implements Command {
     // insert commands after create
     private static final String START_MESSAGE = String.format(
             "Hey! I'm a bot for receiving cryptocurrency rates.\n"
-                    + "Please enter the available command to continue:\n"
+                    + "Please enter the available command to continue:\n\n"
                     + "%s - get a actual rate of top 10 coins;\n"
-                    + "%s - get a number of top 3 coins by their total volume;\n"
-                    + "%s - get a number of top 3 coins by their market cap;\n"
                     + "%s - help;\n"
-                    + "All data is from CryptoCompare (www.cryptocompare.com).",
-            CommandName.GET.getName(),
-            CommandName.GET.getName(),
+                    + "\n\nAll data is from CryptoCompare (www.cryptocompare.com).",
             CommandName.GET.getName(),
             CommandName.HELP.getName()
     );
