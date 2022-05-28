@@ -9,24 +9,29 @@ import java.net.URL;
 import java.util.List;
 
 public class GetRatesTopCoins {
-    private static final String address = "https://min-api.cryptocompare.com/data/pricemulti";
+    private static final String address = "https://min-api.cryptocompare.com/data/pricemulti?fsyms=";
+    private static final String CURRENCY_FOR_RATE_REQUEST_PARAM = "&tsyms=USD,EUR,RUB";
+    private static final String HEADER_MESSAGE = "Top 10 Coins by their total volume:\n";
     private static final String API_KEY = "***";
-    private GetTopListCoinsController getTopListCoinsController;
 
     public String getTopCoinsRates() {
-        getTopListCoinsController = new GetTopListCoinsController();
-        List<JsonElement> topListCoins = getTopListCoinsController.getTopListCoins();
-
         StringBuilder response = new StringBuilder();
+        List<JsonElement> topCoinsNames = new GetTopListCoinsController().getTopListCoins();
+        StringBuilder requestParamsCoinsNames = new StringBuilder();
+
+        for (JsonElement element : topCoinsNames) {
+            requestParamsCoinsNames.append(element.getAsString() + ",");
+        }
 
         try {
-            URL url = new URL(address);
+            URL url = new URL(address + requestParamsCoinsNames.toString() + CURRENCY_FOR_RATE_REQUEST_PARAM);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+
             connection.setRequestMethod("GET");
             connection.setRequestProperty("X-CMC_PRO_API_KEY", API_KEY);
             connection.setRequestProperty("Content-Type", "application/json; utf-8");
             connection.setRequestProperty("Accept", "application/json");
-            
+
             int responseCode = connection.getResponseCode();
 
             if (responseCode != HttpURLConnection.HTTP_OK) {

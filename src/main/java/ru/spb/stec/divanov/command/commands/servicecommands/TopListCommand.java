@@ -3,7 +3,8 @@ package ru.spb.stec.divanov.command.commands.servicecommands;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import ru.spb.stec.divanov.command.Command;
 import ru.spb.stec.divanov.service.botsendmessage.SendBotMessageService;
-import ru.spb.stec.divanov.service.controllers.GetTopListCoinsController;
+import ru.spb.stec.divanov.service.controllers.GetRatesTopCoins;
+import ru.spb.stec.divanov.service.printers.ResponsePrinter;
 
 public class TopListCommand implements Command {
 
@@ -16,6 +17,6 @@ public class TopListCommand implements Command {
     @Override
     public void execute(Update update) {
         sendBotMessageService.sendMessage(update.getMessage().getChatId().toString(),
-                new GetTopListCoinsController().getTopListCoins());
+                new ResponsePrinter().convertToView(new GetRatesTopCoins().getTopCoinsRates()));
     }
 }

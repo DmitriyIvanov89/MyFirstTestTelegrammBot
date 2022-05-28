@@ -26,7 +26,7 @@ public class GetTopListCoinsController {
 //        StringBuilder sb = new StringBuilder();
 //        sb.append(HEADER_MESSAGE);
 //
-//        for (int i = 1; i < coins.size(); i++) {
+//        for (int i = 0; i < coins.size(); i++) {
 //            sb.append(String.format("- %s\n", coins.get(i)));
 //        }
 //
@@ -34,6 +34,4 @@ public class GetTopListCoinsController {
 
         return coins;
     }
-
-
 }
