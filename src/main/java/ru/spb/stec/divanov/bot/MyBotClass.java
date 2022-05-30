@@ -8,14 +8,14 @@ import ru.spb.stec.divanov.command.CommandsContainer;
 import ru.spb.stec.divanov.service.botsendmessage.SendBotMessageImpl;
 
 
-public class Bot extends TelegramLongPollingBot {
+public class MyBotClass extends TelegramLongPollingBot {
 
     private static final String BOT_TOKEN = "5215836988:AAHlnTVEQVYsJtLBsDINg2crQgt1ttdnrV0";
     private static final String BOT_NAME = "JimboJack88Bot";
     private static final String COMMAND_PREFIX = "/";
     private final CommandsContainer commandsContainer;
 
-    public Bot() {
+    public MyBotClass() {
         this.commandsContainer = new CommandsContainer(new SendBotMessageImpl(this));
     }
 
