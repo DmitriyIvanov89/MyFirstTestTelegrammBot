@@ -5,7 +5,7 @@ import ru.spb.stec.divanov.command.CommandsContainer;
 public class CommandsContainerTest {
     private CommandsContainer commandsContainer;
 
-    
+
 
 
 }
