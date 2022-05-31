@@ -2,7 +2,6 @@ package command.commands;
 
 import org.junit.jupiter.api.DisplayName;
 import ru.spb.stec.divanov.command.Command;
-import ru.spb.stec.divanov.command.CommandName;
 import ru.spb.stec.divanov.command.commands.basecommands.UnknownCommand;
 
 @DisplayName("Util-level testing for UnknownCommand")
