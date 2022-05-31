@@ -7,7 +7,7 @@ import ru.spb.stec.divanov.service.botsendmessage.SendBotMessageService;
 public class StopCommand implements Command {
 
     private final SendBotMessageService sendBotMessageService;
-    private static final String STOP_MESSAGE = "Bot completed. Bye";
+    public static final String STOP_MESSAGE = "Bot completed. Bye";
 
     public StopCommand(SendBotMessageService sendBotMessageService) {
         this.sendBotMessageService = sendBotMessageService;

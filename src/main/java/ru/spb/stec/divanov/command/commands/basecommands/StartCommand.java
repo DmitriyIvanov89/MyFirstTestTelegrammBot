@@ -9,7 +9,7 @@ public class StartCommand implements Command {
 
     private final SendBotMessageService sendBotMessageService;
     // insert commands after create
-    private static final String START_MESSAGE = String.format(
+    public static final String START_MESSAGE = String.format(
             "Hey! I'm a bot for receiving cryptocurrency rates.\n"
                     + "Please enter the available command to continue:\n\n"
                     + "%s - get a actual rate of top 10 coins;\n"

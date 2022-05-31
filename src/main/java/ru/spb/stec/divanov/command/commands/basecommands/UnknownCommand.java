@@ -7,7 +7,7 @@ import ru.spb.stec.divanov.service.botsendmessage.SendBotMessageService;
 public class UnknownCommand implements Command {
 
     private final SendBotMessageService sendBotMessageService;
-    private static final String UNKNOWN_MESSAGE = "Invalid command. Please input /help to see available commands";
+    public static final String UNKNOWN_MESSAGE = "Invalid command. Please input /help to see available commands";
 
     public UnknownCommand(SendBotMessageService sendBotMessageService) {
         this.sendBotMessageService = sendBotMessageService;
