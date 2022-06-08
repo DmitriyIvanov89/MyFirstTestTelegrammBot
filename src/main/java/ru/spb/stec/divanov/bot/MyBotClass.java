@@ -10,8 +10,6 @@ import ru.spb.stec.divanov.service.botsendmessage.SendBotMessageImpl;
 
 public class MyBotClass extends TelegramLongPollingBot {
 
-    private static final String BOT_TOKEN = "5215836988:AAHlnTVEQVYsJtLBsDINg2crQgt1ttdnrV0";
-    private static final String BOT_NAME = "JimboJack88Bot";
     private static final String COMMAND_PREFIX = "/";
     private final CommandsContainer commandsContainer;
 
@@ -21,12 +19,12 @@ public class MyBotClass extends TelegramLongPollingBot {
 
     @Override
     public String getBotUsername() {
-        return BOT_NAME;
+        return System.getenv("BOT_NAME");
     }
 
     @Override
     public String getBotToken() {
-        return BOT_TOKEN;
+        return System.getenv("BOT_TOKEN");
     }
 
     @Override
