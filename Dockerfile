@@ -1,6 +1,8 @@
 FROM adoptopenjdk/openjdk8:ubi
-ARG JAR_FILE=target/*.jar
-ENV BOT_TOKEN=5215836988:AAHlnTVEQVYsJtLBsDINg2crQgt1ttdnrV0
-ENV BOT_NAME=JimboJack88Bot
+ARG JAR_FILE=target/myBot.jar
+ARG JAR_LIB_FILE=target/lib/
+ENV bot_token=5215836988:AAHlnTVEQVYsJtLBsDINg2crQgt1ttdnrV0
+ENV bot_name=JimboJack88Bot
 COPY ${JAR_FILE} app.jar
-ENTRYPOINT ["java","-DBOT_NAME=${BOT_NAME}","-DBOT_TOKEN=${BOT_TOKEN}","-jar","/app.jar"]
+ADD ${JAR_LIB_FILE} lib/
+ENTRYPOINT ["java","-Dbot_name=${bot_name}","-Dbot_token=${bot_token}","-jar","/app.jar"]
